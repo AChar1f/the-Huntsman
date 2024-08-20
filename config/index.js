@@ -6,6 +6,7 @@ let connection = createPool({
     host: process.env.hostDb,
     user: process.env.userDb,
     password: process.env.pwdDb,
+    database: process.env.dbName,
     multipleStatements: true,
     connectionLimit: 30
 })
