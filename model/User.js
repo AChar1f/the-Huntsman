@@ -131,7 +131,6 @@ class Users {
     login(req, res) {
         try {
             const {emailAdd, userPass} = req.body
-            // specify the '' to indicate its a varchar
             const strQry = `
             select userID, firstName, lastName, userAge, gender, userRole, emailAdd, userPass, userProfile
             from Users
