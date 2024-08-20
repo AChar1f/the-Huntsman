@@ -1,6 +1,6 @@
-import { connection as db } from "../config/index.js" // comes from config index variables    
+import { connection as db } from "../config/index.js"  
 import { hash, compare } from 'bcrypt'
-import { createToken } from "../middleware/AuthenticateUser.js";
+import { createToken } from "../middleware/UserAuthentication.js";
 
 class Users {
     fetchUsers(req, res) {
@@ -28,10 +28,10 @@ class Users {
         try{
             const strQry = `
             select userID, firstName, lastName, userAge, gender, userRole, emailAdd, userPass, userProfile
-            from Users where userID = ${req.params.userID};
+            from Users where userID = ${req.params.id};
             `
             db.query(strQry, (err, result) => {
-              if (err) throw new Error('Issue when retrieving user data.')
+              if (err) throw new Error(err.message)
               res.json({
             status: res.statusCode,
             result: result[0]
