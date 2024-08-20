@@ -48,7 +48,7 @@ class Products {
         try {
             const strQry = ` 
             select prodID, prodName, prodDescription, quantity, amount, category, prodURL
-            from Products order by prodID  desc limit 3;
+            from Products order by prodID  desc limit 6;
             `
             db.query(strQry, (err, results) => {
                 if(err) throw new Error(err.message)
