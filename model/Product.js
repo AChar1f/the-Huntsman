@@ -110,7 +110,7 @@ class Products {
         }
     }
 
-    deleteProducts(req, res) {
+    deleteProduct(req, res) {
         try {
             const strQry = `
             delete from Products
