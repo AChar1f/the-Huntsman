@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Mate+SC&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bona+Nova+SC:ital,wght@0,400;0,700;1,400&family=Mate+SC&display=swap');
+
 *,
 *::after,
 *::before{
@@ -18,11 +21,16 @@ html {
 
 body {
     min-height: 100vh;
-    background: #020202;
+    background: #fff;
     overflow-x: hidden;
     overflow-y: scroll;
     margin: 0;
     padding: 0;
+    font-family: "Mate SC", serif;
+    font-weight: 400;
+    font-style: normal;
+    flex-wrap: wrap;
+    font-size: 16px;
 }
 
 /* APP */
@@ -32,7 +40,7 @@ body {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     text-align: center;
-    color: #2c3e50;
+    color: #131212;
   }
   
   nav {
@@ -41,11 +49,11 @@ body {
   
   nav a {
     font-weight: bold;
-    color: #2c3e50;
+    color: #131212;
   }
   
   nav a.router-link-exact-active {
-    color: #42b983;
+    color: #133411;
   }
 
   .wrapper {
@@ -53,4 +61,17 @@ body {
     grid-template-rows: auto minmax(100dvh, 100%) auto
   }
 
-  
+/* Headings */
+
+.headings {
+  font-family: "Bona Nova SC", serif;
+  font-weight: 500;
+  font-style: normal;
+  font-size: 2.5rem;
+}
+
+/* img {
+  aspect-ratio: 1;
+  object-fit: cover;
+  object-position: center;
+} */

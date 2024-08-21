@@ -3,18 +3,14 @@ import axios from 'axios'
 import { toast } from 'vue3-toastify'
 import 'vue3-toastify/dist/index.css'
 import router from '@/router'
-// import { applyToken } from '@/service/AuthenticatedUser.js'
-// import { useCookies } from 'vue3-cookies'
-// const { cookies } = useCookies()
 const apiURL = 'https://the-huntsman.onrender.com/'
-// Should you reload the page after logging in
-// applyToken(cookies.get('LegitUser')?.token)
+
 export default createStore({
   state: {
     users: null,
     user: null,
     products: null,
-    // recentProducts: null,
+    latestProducts: null,
     product: null
   },
   getters: {
@@ -29,16 +25,15 @@ export default createStore({
     setProducts(state, value) {
       state.products = value
     },
-    setRecentProducts(state, value) {
-      state.recentProducts = value
+    setLatestProducts(state, value) {
+      state.latestProducts = value
     },
     setProduct(state, value) {
       state.product = value
-    },
+    }
 
   },
   actions: {
-    //Users
     async fetchUsers(context) {
       try {
         const { results, msg } = await (await axios.get(`${apiURL}users`)).data
@@ -152,29 +147,11 @@ export default createStore({
       }
 
     },
-    // async recentProducts(context) {
-    //   try {
-    //     const { results, msg } = await (await axios.get(`${apiURL}products/recent`)).data
-    //     if (results) {
-    //       context.commit('setRecentProducts', results)
-    //     } else {
-    //       toast.error(`${msg}`, {
-    //         autoClose: 2000,
-    //         position: toast.POSITION.BOTTOM_CENTER
-    //       })
-    //     }
-    //   } catch (e) {
-    //     toast.error(`${e.message}`, {
-    //       autoClose: 2000,
-    //       position: toast.POSITION.BOTTOM_CENTER
-    //     })
-    //   }
-    // },
-    async fetchProduct(context, id) {
+    async latestProducts(context) {
       try {
-        const { result, msg } = await (await axios.get(`${apiURL}products/${id}`)).data
-        if (result) {
-          context.commit('setProduct', result)
+        const { results, msg } = await (await axios.get(`${apiURL}products/latest`)).data
+        if (results) {
+          context.commit('setLatestProducts', results)
         } else {
           toast.error(`${msg}`, {
             autoClose: 2000,
@@ -188,7 +165,25 @@ export default createStore({
         })
       }
     },
-    async addAProduct(context, payload) {
+    async fetchProduct(context, id) {
+      try {
+        const { results, msg } = await (await axios.get(`${apiURL}products/${id}`)).data
+        if (results) {
+          context.commit('setProduct', results)
+        } else {
+          toast.error(`${msg}`, {
+            autoClose: 2000,
+            position: toast.POSITION.BOTTOM_CENTER
+          })
+        }
+      } catch (e) {
+        toast.error(`${e.message}`, {
+          autoClose: 2000,
+          position: toast.POSITION.BOTTOM_CENTER
+        })
+      }
+    },
+    async addProduct(context, payload) {
       try {
         const { msg } = await (await axios.post(`${apiURL}products/addProduct`, payload)).data
         if (msg) {
