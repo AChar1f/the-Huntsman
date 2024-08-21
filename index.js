@@ -1,11 +1,13 @@
 import path from "path";   
+import cors from 'cors'
 import { productRouter } from "./controller/ProductController.js";
 import { userRouter, express } from "./controller/UserController.js";
+import { errorHandling } from "./middleware/ErrorHandling.js";
 
 // Create an Express App
 const app = express()
 const port = +process.env.PORT || 4000
-const router = express.Router()
+
 
 // Middleware
 app.use((req, res, next) => {
@@ -24,9 +26,11 @@ app.use(
   express.json(),
   express.urlencoded({
     extended: true
-}))
+    }),
+    cors()
+)
 // Endpoint
-app.get("^/$|/theforge", (req, res) => {
+app.get("^/$|/thehuntsman", (req, res) => {
   res.status(200).sendFile(path.resolve("./static/html/index.html"))
 })
 app.get('*', (req, res) => {       // any endpoint that we did not create will return this.
@@ -35,6 +39,7 @@ app.get('*', (req, res) => {       // any endpoint that we did not create will r
       msg: 'Resource not found'
     })
   })
+app.use(errorHandling)
 app.listen(port, () => {
     console.log(`Live on Port: ${port}`)
   })

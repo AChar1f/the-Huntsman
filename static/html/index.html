@@ -4,14 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/style.css">
-    <title>The Forge</title>
+    <title>The Huntsman</title>
 </head>
 <body>
-    <h2>Welcome to the Forge</h2>
+    <h2>Welcome to The Huntsman</h2>
 
     <main>
         <table border = 5>
-            <caption>Landing</caption>
+            <caption><h3>Landing</h3></caption>
             <thead>
                 <tr>
                     <th>HTTP Methods</th>
@@ -29,7 +29,7 @@
         </table>
 
         <table border = 5>
-            <caption>Users</caption>
+            <caption><h3>Users</h3></caption>
             <thead>
                 <tr>
                     <th>HTTP Method</th>
@@ -67,7 +67,7 @@
         </table>
 
         <table border = 5>
-            <caption>Products</caption>
+            <caption><h3>Products</h3></caption>
             <thead>
                 <tr>
                     <th>HTTP Method</th>
@@ -85,6 +85,11 @@
                     <td>GET</td>
                     <td>/products/:id</td>
                     <td>Fetches a product's data from the database for the id provided.</td>
+                </tr>
+                <tr>
+                    <td>GET</td>
+                    <td>/products/latest</td>
+                    <td>Fetches the last 6 products added to the database from the most recent.</td>
                 </tr>
                 <tr>
                     <td>POST</td>
