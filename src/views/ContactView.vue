@@ -1,5 +1,5 @@
 <template>
-  <div class="container  pt-5">
+  <div class="container content  pt-5">
         <div class="row  pt-5">
             <h2 class="headings ">Contact Us</h2>
         </div>
