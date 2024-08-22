@@ -5,17 +5,22 @@
       </div>
       <div class="row justify-content-center" v-if="product">
           <CardComp>
-              <template #cardHeader>
-                  {{ product.productUrl }}
-                  <img :src="product.prodUrl" loading="lazy" class="img-fluid" :alt="product.prodName">
-              </template>
-              <template #cardBody>
-                  <h5 class="card-title fw-bold">{{ product.prodName }}</h5>
-                  <p class="lead">
-                      {{ product.prodDescription }}
-                  </p>
-                  <p class="lead"><span class="text-success fw-bold">Amount</span>: R{{ product.amount }}</p>
-              </template>
+            <template #card-header>
+          <img
+            :src="product.prodUrl"
+            loading="lazy"
+            class="img-fluid"
+            :alt="product.prodName"
+          />
+        </template>
+        <template #card-body>
+          <h5 class="card-title">{{ product.prodName }}</h5>
+          <h5 class="card-description">{{ product.prodDescription }}</h5>
+        </template>
+        <template #card-footer>
+          <p class="lead pt-2">R{{ product.amount }}</p>
+          <p class="category">{{ product.category }}</p>
+        </template>
           </CardComp>
       </div>
       <div v-else> 

@@ -76,6 +76,10 @@ body {
   border-radius: none !important;
 }
 
+.btn:hover {
+  color: #fff;
+}
+
 /* content ease in */
 
 @keyframes contentEaseIn {

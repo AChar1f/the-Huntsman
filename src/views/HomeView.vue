@@ -17,20 +17,20 @@
         </template>
         <template #card-body>
           <h5 class="card-title">{{ product.prodName }}</h5>
-          <!-- <p class="lead">{{ product.prodDescription }}</p> -->
         </template>
         <template #card-footer>
           <div
-          class="button-wrapper d-md-flex d-block justify-content-center"
+            class="button-wrapper d-md-flex d-block justify-content-center"
           >
-          <router-link
-          :to="{ name: 'product', params: { id: product.prodID } }"
-          >
-          <button class="btn btn-success">View Product</button>
-        </router-link>
-      </div>
-      <p class="lead pt-2">Amount: R{{ product.amount }}</p>
-    </template>
+            <router-link
+              :to="{ name: 'product', params: { id: product.prodID } }"
+            >
+              <button class="btn btn-success">View Product</button>
+            </router-link>
+          </div>
+          <p class="lead pt-2">R{{ product.amount }}</p>
+          <p class="category">{{ product.category }}</p>
+        </template>
       </CardComp>
     </div>
     <div v-else>

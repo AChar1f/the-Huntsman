@@ -8,10 +8,11 @@
     <div class="row  pt-4">
             <h2 class="headings ">Users</h2>
     </div>
-    <button @click="showAddUserForm = true" class="add-user-button btn mt-1 mb-1">Add User</button>
+    <button @click="showAddUserForm = true" class="add-user-button btn mt-3 mb-3">Add User</button>
     
     <!-- Add User Form -->
-    <div v-if="showAddUserForm" class="add-user-form">
+    <div v-if="showAddUserForm" class="modal-overlay">
+    <div class="modal-content">
       <h3>Add New User</h3>
       <input v-model="newUser.userProfile" type="text" placeholder="Profile URL">
       <input v-model="newUser.firstName" type="text" placeholder="First Name">
@@ -22,6 +23,8 @@
       <button class="btn mt-1 mb-1" @click="addUser">Submit</button>
       <button class="btn mt-1 mb-1" @click="showAddUserForm = false">Cancel</button>
     </div>
+    </div>
+    
     <table class="table">
       <thead>
         <tr>
@@ -47,24 +50,26 @@
           <td>{{ user.emailAdd }}</td>
           <td>{{ user.userRole }}</td>
           <td>
-            <button class="btn mt-1 mb-1" @click="updateUser(user)">Update</button>
-            <button class="btn mt-1 mb-1" @click="deleteUser(user.id)">Delete</button>
+            <button class="btn mt-1 mb-1" @click="openUpdateUserModal(user)">Update</button>
+            <button class="btn mt-1 mb-1" @click="deleteUser(userID)">Delete</button>
           </td>
         </tr>
       </tbody>
     </table>
 
         <!-- Update User Modal -->
-        <div v-if="showUpdateModal" class="modal-overlay">
+        <div v-if="showUpdateUserModal" class="modal-overlay">
       <div class="modal-content">
         <h3>Update User</h3>
         <input v-model="currentUser.userProfile" type="text" placeholder="Profile URL">
         <input v-model="currentUser.firstName" type="text" placeholder="First Name">
         <input v-model="currentUser.lastName" type="text" placeholder="Last Name">
         <input v-model="currentUser.userAge" type="text" placeholder="Age">
+        <input v-model="currentUser.gender" type="text" placeholder="Gender">
         <input v-model="currentUser.emailAdd" type="email" placeholder="Email">
-        <button class="btn mt-1 mb-1" @click="updateUser">Save changes</button>
-        <button class="btn mt-1 mb-1" @click="closeUpdateModal">Cancel</button>
+        <input v-model="currentUser.userPass" type="password" placeholder="Password">
+        <button class="btn mt-1 mb-1" @click="updateUser(currentUser)">Save changes</button>
+        <button class="btn mt-1 mb-1" @click="closeUpdateUserModal">Cancel</button>
       </div>
     </div>
 
@@ -74,6 +79,24 @@
     <div class="row pt-4">
             <h2 class="headings ">Products</h2>
     </div>
+
+    <button @click="showAddProductForm = true" class="add-product-button btn mt-3 mb-3">Add Product</button>
+    
+    <!-- Add Product Form -->
+    <div v-if="showAddProductForm" class="modal-overlay">
+    <div class="modal-content">
+      <h3>Add New Product</h3>
+      <input v-model="newProduct.prodUrl" type="text" placeholder="Product URL">
+      <input v-model="newProduct.prodName" type="text" placeholder="Product Name">
+      <input v-model="newProduct.prodDescription" type="text" placeholder="Description">
+      <input v-model="newProduct.category" type="text" placeholder="Category">
+      <input v-model="newProduct.amount" type="text" placeholder="Price">
+      <input v-model="newProduct.quantity" type="text" placeholder="Quantity">
+      <button class="btn mt-1 mb-1" @click="addProduct">Submit</button>
+      <button class="btn mt-1 mb-1" @click="showAddProductForm = false">Cancel</button>
+    </div>
+    </div>
+
     <table class="table">
       <thead>
         <tr>
@@ -82,7 +105,8 @@
           <th>Product Name</th>
           <th>Description</th>
           <th>Category</th>
-          <th>Amount</th>
+          <th>Price</th>
+          <th>Quantity</th>
           <th>Actions</th>
         </tr>
       </thead>
@@ -94,13 +118,29 @@
           <td>{{ product.prodDescription }}</td>
           <td>{{ product.category }}</td>
           <td>R {{ product.amount }}</td>
+          <td>{{ product.quantity }}</td>
           <td>
-            <button class="btn mt-1 mb-1" @click="updateProduct(product)">Update</button>
-            <button class="btn mt-1 mb-1" @click="deleteProduct(product.prodID)">Delete</button>
+            <button class="btn mt-1 mb-1" @click="openUpdateProductModal(product)">Update</button>
+            <button class="btn mt-1 mb-1" @click="deleteProduct(prodID)">Delete</button>
           </td>
         </tr>
       </tbody>
     </table>
+
+            <!-- Update Product Modal -->
+    <div v-if="showUpdateProductModal" class="modal-overlay">
+      <div class="modal-content">
+        <h3>Update Product</h3>
+        <input v-model="currentProduct.prodUrl" type="text" placeholder="Product URL">
+        <input v-model="currentProduct.prodName" type="text" placeholder="Product Name">
+        <input v-model="currentProduct.prodDescription" type="text" placeholder="Description">
+        <input v-model="currentProduct.category" type="text" placeholder="Category">
+        <input v-model="currentProduct.amount" type="text" placeholder="Price">
+        <input v-model="currentProduct.quantity" type="text" placeholder="Quantity">
+        <button class="btn mt-1 mb-1" @click="updateProduct(currentProduct)">Save changes</button>
+        <button class="btn mt-1 mb-1" @click="closeUpdateProductModal">Cancel</button>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -110,56 +150,94 @@ import { mapState, mapActions } from 'vuex'
 export default {
   name: 'AdminTable',
   data() {
-    return {
-      showAddUserForm: false,
-      newUser: {
-        name: '',
-        email: '',
-        password: ''
-      }
-    };
-  },
+  return {
+    showAddUserForm: false,
+    showAddProductForm: false,
+    showUpdateUserModal: false,
+    showUpdateProductModal: false,
+    newUser: {
+      userProfile: '',
+      firstName: '',
+      lastName: '',
+      userAge: '',
+      gender: '',
+      emailAdd: '',
+      userPass: ''
+    },
+    newProduct: {
+      prodUrl: '',
+      prodName: '',
+      prodDescription: '',
+      category: '',
+      amount: '',
+      quantity: ''
+    },
+    currentUser: {},
+    currentProduct: {}
+  };
+},
   computed: {
     ...mapState(['users', 'products'])
   },
   methods: {
     ...mapActions(['fetchUsers', 'fetchProducts', 'updateUser', 'deleteUser', 'updateProduct', 'deleteProduct']),
-    openUpdateModal(user) {
+    openUpdateUserModal(user) {
       this.currentUser = { ...user };
-      this.showUpdateModal = true;
+      this.showUpdateUserModal = true;
     },
-    closeUpdateModal() {
-      this.showUpdateModal = false;
+    closeUpdateUserModal() {
+      this.showUpdateUserModal = false;
     },
     updateUser() {
-      this.$store.dispatch('updateUser', this.currentUser).then(() => {
-        this.showUpdateModal = false;
+      this.$store.dispatch('updateUser', { ...this.currentUser, userID: this.currentUser.userID }).then(() => {
+        this.showUpdateUserModal = false;
       });
     },
     deleteUser(userID) {
       if (confirm('Are you sure you want to delete this user?')) {
-        this.deleteUser(userID);
+        this.$store.dispatch('deleteUser', userID);
       }
     },
-    updateProduct(product) {
-      this.updateProduct({ prodID: product.id, ...product });
+    openUpdateProductModal(product) {
+      this.currentProduct = { ...product };
+      this.showUpdateProductModal = true;
+    },
+    closeUpdateProductModal() {
+      this.showUpdateProductModal = false;
+    },
+    updateProduct() {
+      this.$store.dispatch('updateProduct', { ...this.currentProduct, prodID: this.currentProduct.prodID }).then(() => {
+        this.showUpdateProductModal = false;
+      });
     },
     deleteProduct(prodID) {
       if (confirm('Are you sure you want to delete this product?')) {
-        this.deleteProduct(prodID);
-      }
-    }
-  },
+    this.$store.dispatch('deleteProduct', prodID).then(() => {
+      this.fetchProducts(); // Reload products
+    });
+  }
+    },
     addUser() {
-      if (this.newUser.name && this.newUser.email && this.newUser.password) {
+      if (this.newUser.userProfile && this.newUser.firstName && this.newUser.lastName && this.newUser.userAge && this.newUser.emailAdd && this.newUser.userPass) {
         this.$store.dispatch('register', this.newUser).then(() => {
           this.showAddUserForm = false;
-          this.newUser = { name: '', email: '', password: '' };
+          this.newUser = { userProfile: '', firstName: '', lastName: '', userAge: '', emailAdd: '', userPass: '' };
         });
       } else {
         alert('Please fill in all fields.');
       }
     },
+    addProduct() {
+      if (this.newProduct.prodUrl && this.newProduct.prodName && this.newProduct.prodDescription && this.newProduct.category && this.newProduct.amount  && this.newProduct.quantity ) {
+        this.$store.dispatch('addProduct', this.newProduct).then(() => {
+          this.showAddProductForm = false;
+          this.newProduct = { prodUrl: '', firstName: '', prodName: '', prodDescription: '', category: '', quantity: '' };
+        });
+      } else {
+        alert('Please fill in all fields.');
+      }
+    }
+  },
   mounted() {
     this.fetchUsers();
     this.fetchProducts();
@@ -210,39 +288,47 @@ button {
 
 }
 
-.add-user-button {
+button:hover {
+  color: #fff;
+}
+
+.add-user-button, .add-product-button {
   margin-bottom: 20px;
   padding: 10px;
-  background-color: #28a745;
   color: white;
   border: none;
   cursor: pointer;
   border-radius: 5px;
 }
 
-.add-user-form {
-  margin: 0 auto;
-  margin-bottom: 20px;
-  
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000; /* Ensure it's on top */
 }
 
-.add-user-form input {
-  display: block;
-  margin-bottom: 0.5rem !important;
-  margin-top: 0.5rem !important;
-  padding: 8px;
+.modal-content {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  z-index: 1001;
   width: 30%;
-  box-sizing: border-box;
-  margin: 0 auto;
-  border-radius: 5px 2px 5px 2px !important;
 }
 
-.add-user-form button {
-  margin-right: 10px;
-  padding: 10px;
-  color: white;
-  border: none;
-  cursor: pointer;
-  border-radius: 5px;
+.modal-content input {
+  margin-top: 0.3rem;
+  margin-bottom: 0.3rem;
+  border-radius: 4px 4px 4px 4px;
+  border: 1px solid rgba(0, 0, 0, 0.3);
 }
+
 </style>
