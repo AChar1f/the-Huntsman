@@ -6,6 +6,9 @@
         <div class="card-body">
             <slot name="card-body"></slot>
         </div>
+        <div class="card-footer">
+            <slot name="card-footer"></slot>
+        </div>
     </div>
 </template>
 <script>
@@ -44,8 +47,18 @@ transform: scale(1.01);
 width: 100%;
 height: auto;
 border-radius: 0px !important;
+background: #fff;
 }
 
+img {
+  aspect-ratio: 1;
+  object-fit: contain;
+  object-position: center;
+}
+
+.card-header, .card-footer {
+    background: #fff;
+}
 .card-body {
 padding: 16px;
 }

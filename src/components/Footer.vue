@@ -1,7 +1,7 @@
 <template>
     <footer class="container-fluid">
         <div class="row">
-            <p class="lead">Caleb Okkers &copy; <span class="shadow">{{ cYear }}</span></p>
+            <p class="lead">The Huntsman &copy; <span class="shadow">{{ cYear }}</span></p>
         </div>
     </footer>
 </template>
@@ -20,10 +20,11 @@ export default {
 footer {
     color: #000;
     background: #fff;
-    font-family: "JetBrains Mono", monospace;
-    font-optical-sizing: auto;
+    font-family: "Bona Nova SC", serif;
+    font-weight: 500;
     font-style: normal;
-    font-style: normal;
+    font-size: 2.5rem;
+    color: rgb(29, 29, 29);
     bottom: 0;
 }
 

@@ -59,7 +59,7 @@ export default {
 </script>
 <style scoped>
 img {
-  width: 5rem;
+  width: 4rem;
 }
 
 .navbar {
@@ -72,7 +72,7 @@ img {
 }
 
 .navbar .nav-link {
-    color: #4b4242 !important;
+    color: #4b4242;
     padding-left: 1rem !important;
     padding-right: 1rem !important;
 }
@@ -86,6 +86,11 @@ img {
     box-shadow: none !important; /* Remove the focus box shadow */
 }
 
+nav a.router-link-exact-active {
+  color: rgb(0, 43, 29) !important;
+  }
+
+
 .logo {
     width: 4rem;
 }
@@ -95,7 +100,7 @@ img {
     display: inline-block;
     padding-bottom: 5px;
     text-decoration: none;
-    color: #000; /* Adjust this color as needed */
+    /* color: #000; */
     transition: color 0.3s ease;
 }
 
@@ -111,7 +116,7 @@ img {
 }
 
 .nav-link:hover {
-    color: #000 !important; /* Adjust the hover text color */
+  color: rgb(0, 43, 29) !important; /* Adjust the hover text color */
 }
 
 .nav-link:hover::after {
