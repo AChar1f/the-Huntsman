@@ -68,7 +68,9 @@ font-size: 1.25rem;
 margin: 0 0 8px;
 }
 
-
+.card-footer {
+    border: none;
+}
 
 
 
