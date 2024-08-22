@@ -1,8 +1,8 @@
 import path from "path";   
-import cors from 'cors'
 import { productRouter } from "./controller/ProductController.js";
 import { userRouter, express } from "./controller/UserController.js";
 import { errorHandling } from "./middleware/ErrorHandling.js";
+import cors from 'cors'
 
 // Create an Express App
 const app = express()
