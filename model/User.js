@@ -154,7 +154,8 @@ class Users {
                     emailAdd, userPass
                   })
                   res.json({
-                    status: res.statusCode,
+                      status: res.statusCode,
+                      msg: "Login Successful. =)",
                     token,
                     result: result[0]
                   })
