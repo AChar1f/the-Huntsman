@@ -1,42 +1,46 @@
 <template>
   <div class="container-fluid pt-5 content">
     <div class="row pt-4">
-      <h2 class="title"><span>The </span> <span> Huntsman</span></h2>
+      <h2 class="title heading"><span>The </span> <span> Huntsman</span></h2>
     </div>
     <div class="row home-img-row">
       <img class="home-img" src="https://github.com/caleb-okkers/the-forge-images/blob/main/pexels-ahmetmert-20576396(1)(1)(1)(1).png?raw=true" alt="Warrior" loading="lazy">
     </div>
-    <div class="row">
-      <h5 class="headings">New Releases</h5>
-    </div>
-    <div class="row gap-2 justify-content-center products-div" v-if="latestProducts">
-      <CardComp v-for="product in latestProducts" :key="product.prodID">
-        <template #card-header>
-          {{ product.productURL }}
-          <img :src="product.prodURL" loading="lazy" class="img-fluid" :alt="product.prodName">
-        </template>
-        <template #card-body>
-          <h5 class="card-title">{{ product.prodName }}</h5>
-        </template>
-        <template #card-footer>
-          <div
+
+    <section class="products-section">
+
+      <div class="row">
+        <h5 class="headings">New Releases</h5>
+      </div>
+      <div class="row gap-2 justify-content-center products-div" v-if="latestProducts">
+        <CardComp v-for="product in latestProducts" :key="product.prodID">
+          <template #card-header>
+            {{ product.productURL }}
+            <img :src="product.prodURL" loading="lazy" class="img-fluid" :alt="product.prodName">
+          </template>
+          <template #card-body>
+            <h5 class="card-title">{{ product.prodName }}</h5>
+          </template>
+          <template #card-footer>
+            <div
             class="button-wrapper d-md-flex d-block justify-content-center"
-          >
-            <router-link
-              :to="{ name: 'product', params: { id: product.prodID } }"
             >
-              <button class="btn btn-success">View Product</button>
-            </router-link>
-          </div>
-          <p class="lead pt-2">R{{ product.amount }}</p>
-          <p class="category">{{ product.category }}</p>
-        </template>
-      </CardComp>
-    </div>
-    <div v-else>
-      <Spinner/> 
-    </div>
+            <router-link
+            :to="{ name: 'product', params: { id: product.prodID } }"
+            >
+            <button class="btn btn-success">View Product</button>
+          </router-link>
+        </div>
+        <p class="lead pt-2">R{{ product.amount }}</p>
+        <p class="category">{{ product.category }}</p>
+      </template>
+    </CardComp>
   </div>
+  <div v-else>
+    <Spinner/> 
+  </div>
+</section>
+</div>
 </template>
 
 <script>
@@ -60,6 +64,8 @@ export default {
 </script>
 
 <style scoped>
+
+
 
 
 
@@ -136,7 +142,47 @@ export default {
 }
 
 .btn {
-  background: rgb(0, 43, 29) !important;
+  /* background: rgb(0, 43, 29) !important; */
   border-radius: none !important;
+}
+
+.heading {
+  padding-bottom: 20px;
+  position: fixed;
+  top: 5rem; /* Adjust to place the banner below the heading */
+
+  z-index: 1; /* Banner stays behind the text */
+  overflow: hidden;
+}
+
+.home-img-row {
+  position: fixed;
+  top: 170px; /* Adjust to place the banner below the heading */
+  z-index: -1; /* Banner stays behind the text */
+  overflow: hidden;
+}
+
+.home-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Ensure the image covers the entire banner area */
+}
+
+.text {
+  position: relative;
+  z-index: 2; /* Ensure text is above the banner */
+  margin-top: 200px; /* Adjust to start overlapping the banner */
+  padding: 20px;
+  background-color: #fff; /* Optional: Adds a semi-transparent background to the text */
+  width: 100vw;
+}
+
+.products-section {
+  position: relative;
+  z-index: 2; /* Ensure text is above the banner */
+  margin-top: 40rem; /* Adjust to start overlapping the banner */
+  padding: 20px;
+  background-color: #fff; /* Optional: Adds a semi-transparent background to the text */
+  width: 100vw;
 }
 </style>

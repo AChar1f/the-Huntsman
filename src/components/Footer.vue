@@ -26,6 +26,7 @@ footer {
     font-size: 2.5rem;
     color: rgb(29, 29, 29);
     bottom: 0;
+    z-index: 1;
 }
 
 footer p {

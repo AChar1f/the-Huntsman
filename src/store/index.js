@@ -2,7 +2,6 @@ import { createStore } from 'vuex'
 import axios from 'axios'
 import { toast } from 'vue3-toastify'
 import 'vue3-toastify/dist/index.css'
-import router from '@/router'
 const apiURL = 'https://the-huntsman.onrender.com/'
 
 export default createStore({
@@ -79,7 +78,6 @@ export default createStore({
             autoClose: 2000,
             position: toast.POSITION.BOTTOM_CENTER
           })
-          router.push({ name: 'login' })
         } else {
           toast.error(`${err}`, {
             autoClose: 2000,

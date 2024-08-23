@@ -1,36 +1,44 @@
 
 <template>
-  <div class="container content  pt-5">
+  <div class="container-fluid content  pt-5">
     <div class="row  pt-5">
-            <h2 class="headings ">Admin Portal</h2>
+            <h2 class="headings heading ">Admin Portal</h2>
     </div>
 
-    <div class="row  pt-4">
-            <h2 class="headings ">Users</h2>
+    <div class="row banner-row">
+            <img class="banner" src="https://github.com/caleb-okkers/the-forge-images/blob/main/adminbannercrop.png?raw=true" alt="">
     </div>
-    <button @click="showAddUserForm = true" class="add-user-button btn mt-3 mb-3">Add User</button>
-    
-    <!-- Add User Form -->
-    <div v-if="showAddUserForm" class="modal-overlay">
-    <div class="modal-content">
-      <h3>Add New User</h3>
-      <input v-model="newUser.userProfile" type="text" placeholder="Profile URL">
-      <input v-model="newUser.firstName" type="text" placeholder="First Name">
-      <input v-model="newUser.lastName" type="text" placeholder="Last Name">
-      <input v-model="newUser.userAge" type="text" placeholder="Age">
-      <input v-model="newUser.emailAdd" type="email" placeholder="Email">
-      <input v-model="newUser.userPass" type="password" placeholder="Password">
-      <button class="btn mt-1 mb-1" @click="addUser">Submit</button>
-      <button class="btn mt-1 mb-1" @click="showAddUserForm = false">Cancel</button>
-    </div>
-    </div>
-    
-    <table class="table">
-      <thead>
-        <tr>
-          <th>Profile</th>
-          <th>ID</th>
-          <th>First Name</th>
+
+    <section class="admin-section">
+
+      
+      <div class="row  pt-4">
+        <h2 class="headings ">Users</h2>
+      </div>
+      <button @click="showAddUserForm = true" class="add-user-button btn mt-3 mb-3">Add User</button>
+      
+      <!-- Add User Form -->
+      <div v-if="showAddUserForm" class="modal-overlay">
+        <div class="modal-content">
+          <h3>Add New User</h3>
+          <input v-model="newUser.userProfile" type="text" placeholder="Profile URL">
+          <input v-model="newUser.firstName" type="text" placeholder="First Name">
+          <input v-model="newUser.lastName" type="text" placeholder="Last Name">
+          <input v-model="newUser.userAge" type="text" placeholder="Age">
+          <input v-model="newUser.gender" type="text" placeholder="Gender">
+          <input v-model="newUser.emailAdd" type="email" placeholder="Email">
+          <input v-model="newUser.userPass" type="password" placeholder="Password">
+          <button class="btn mt-1 mb-1" @click="addUser">Submit</button>
+          <button class="btn mt-1 mb-1" @click="showAddUserForm = false">Cancel</button>
+        </div>
+      </div>
+      
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Profile</th>
+            <th>ID</th>
+            <th>First Name</th>
           <th>Last Name</th>
           <th>Age</th>
           <th>Gender</th>
@@ -56,9 +64,9 @@
         </tr>
       </tbody>
     </table>
-
-        <!-- Update User Modal -->
-        <div v-if="showUpdateUserModal" class="modal-overlay">
+    
+    <!-- Update User Modal -->
+    <div v-if="showUpdateUserModal" class="modal-overlay">
       <div class="modal-content">
         <h3>Update User</h3>
         <input v-model="currentUser.userProfile" type="text" placeholder="Profile URL">
@@ -72,31 +80,31 @@
         <button class="btn mt-1 mb-1" @click="closeUpdateUserModal">Cancel</button>
       </div>
     </div>
-
-
     
-
+    
+    
+    
     <div class="row pt-4">
-            <h2 class="headings ">Products</h2>
+      <h2 class="headings ">Products</h2>
     </div>
-
+    
     <button @click="showAddProductForm = true" class="add-product-button btn mt-3 mb-3">Add Product</button>
     
     <!-- Add Product Form -->
     <div v-if="showAddProductForm" class="modal-overlay">
-    <div class="modal-content">
-      <h3>Add New Product</h3>
-      <input v-model="newProduct.prodUrl" type="text" placeholder="Product URL">
-      <input v-model="newProduct.prodName" type="text" placeholder="Product Name">
-      <input v-model="newProduct.prodDescription" type="text" placeholder="Description">
-      <input v-model="newProduct.category" type="text" placeholder="Category">
-      <input v-model="newProduct.amount" type="text" placeholder="Price">
-      <input v-model="newProduct.quantity" type="text" placeholder="Quantity">
-      <button class="btn mt-1 mb-1" @click="addProduct">Submit</button>
-      <button class="btn mt-1 mb-1" @click="showAddProductForm = false">Cancel</button>
+      <div class="modal-content">
+        <h3>Add New Product</h3>
+        <input v-model="newProduct.prodUrl" type="text" placeholder="Product URL">
+        <input v-model="newProduct.prodName" type="text" placeholder="Product Name">
+        <input v-model="newProduct.prodDescription" type="text" placeholder="Description">
+        <input v-model="newProduct.category" type="text" placeholder="Category">
+        <input v-model="newProduct.amount" type="text" placeholder="Price">
+        <input v-model="newProduct.quantity" type="text" placeholder="Quantity">
+        <button class="btn mt-1 mb-1" @click="addProduct">Submit</button>
+        <button class="btn mt-1 mb-1" @click="showAddProductForm = false">Cancel</button>
+      </div>
     </div>
-    </div>
-
+    
     <table class="table">
       <thead>
         <tr>
@@ -126,8 +134,8 @@
         </tr>
       </tbody>
     </table>
-
-            <!-- Update Product Modal -->
+    
+    <!-- Update Product Modal -->
     <div v-if="showUpdateProductModal" class="modal-overlay">
       <div class="modal-content">
         <h3>Update Product</h3>
@@ -141,6 +149,7 @@
         <button class="btn mt-1 mb-1" @click="closeUpdateProductModal">Cancel</button>
       </div>
     </div>
+  </section>
   </div>
 </template>
 
@@ -150,13 +159,13 @@ import { mapState, mapActions } from 'vuex'
 export default {
   name: 'AdminTable',
   data() {
-  return {
-    showAddUserForm: false,
-    showAddProductForm: false,
-    showUpdateUserModal: false,
-    showUpdateProductModal: false,
-    newUser: {
-      userProfile: '',
+    return {
+      showAddUserForm: false,
+      showAddProductForm: false,
+      showUpdateUserModal: false,
+      showUpdateProductModal: false,
+      newUser: {
+        userProfile: '',
       firstName: '',
       lastName: '',
       userAge: '',
@@ -248,7 +257,7 @@ export default {
 
 <style scoped>
 
-img {
+table img {
   aspect-ratio: 1;
   object-fit: contain;
   object-position: center;
@@ -329,6 +338,38 @@ button:hover {
   margin-bottom: 0.3rem;
   border-radius: 4px 4px 4px 4px;
   border: 1px solid rgba(0, 0, 0, 0.3);
+}
+
+.heading {
+  padding-bottom: 20px;
+  position: fixed;
+  top: 6rem; /* Adjust to place the banner below the heading */
+
+  z-index: 1; /* Banner stays behind the text */
+  overflow: hidden;
+}
+
+.banner-row {
+  position: fixed;
+  top: 150px; /* Adjust to place the banner below the heading */
+
+  z-index: -1; /* Banner stays behind the text */
+  overflow: hidden;
+}
+
+.banner {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Ensure the image covers the entire banner area */
+}
+
+.admin-section {
+  position: relative;
+  z-index: 2; /* Ensure text is above the banner */
+  margin-top: 200px; /* Adjust to start overlapping the banner */
+  padding: 20px;
+  background-color: #fff; /* Optional: Adds a semi-transparent background to the text */
+  width: 100vw;
 }
 
 </style>

@@ -1,63 +1,72 @@
 <template>
   <div class="container-fluid pt-5 content">
-    <div class="row pt-5 pb-4">
-      <h2 class="headings">Products</h2>
+    <div class="row pt-5 pb-2">
+      <h2 class="headings heading">Products</h2>
     </div>
-    <div class="row d-flex justify-content-center pb-4">
-      <button
+
+    <div class="row banner-row">
+            <img class="banner" src="https://github.com/caleb-okkers/the-forge-images/blob/main/pexels-kampcropveyaban-17487579(1)(1)(1)(1).png?raw=truehttps://github.com/caleb-okkers/the-forge-images/blob/main/pexels-kampcropveyaban-17487579(1)(1)(1)(1).png?raw=true" alt="">
+    </div>
+
+    <section class="products-section">
+
+      
+      <div class="row d-flex justify-content-center pt-4 pb-4">
+        <button
         class="btn sort"
         type="button"
         id="sort"
         @click="toggleSort"
-      >
+        >
         Sort by price: {{ sortAscending ? 'lowest' : 'highest' }}
       </button>
-
+      
       <form role="search" class="w-25 h-100">
         <input
-          class="form-control w-100 h-100"
-          type="search"
-          placeholder="Search"
-          aria-label="Search"
-          v-model="searchQuery"
+        class="form-control w-100 h-100"
+        type="search"
+        placeholder="Search"
+        aria-label="Search"
+        v-model="searchQuery"
         />
       </form>
     </div>
     <div
-      class="row gap-2 justify-content-center products-div"
-      v-if="products && products.length"
+    class="row gap-2 justify-content-center products-div"
+    v-if="products && products.length"
     >
-      <CardComp v-for="product in products" :key="product.prodID">
-        <template #card-header>
-          <img
+    <CardComp v-for="product in products" :key="product.prodID">
+      <template #card-header>
+        <img
             :src="product.prodUrl"
             loading="lazy"
             class="img-fluid"
             :alt="product.prodName"
-          />
+            />
         </template>
         <template #card-body>
           <h5 class="card-title">{{ product.prodName }}</h5>
         </template>
         <template #card-footer>
           <div
-            class="button-wrapper d-md-flex d-block justify-content-center"
+          class="button-wrapper d-md-flex d-block justify-content-center"
           >
-            <router-link
-              :to="{ name: 'product', params: { id: product.prodID } }"
-            >
-              <button class="btn btn-success">View Product</button>
-            </router-link>
-          </div>
-          <p class="lead pt-2">R{{ product.amount }}</p>
-          <p class="category">{{ product.category }}</p>
-        </template>
-      </CardComp>
-    </div>
-    <div v-else>
-      <Spinner />
-    </div>
-  </div>
+          <router-link
+          :to="{ name: 'product', params: { id: product.prodID } }"
+          >
+          <button class="btn btn-success">View Product</button>
+        </router-link>
+      </div>
+      <p class="lead pt-2">R{{ product.amount }}</p>
+      <p class="category">{{ product.category }}</p>
+    </template>
+  </CardComp>
+</div>
+<div v-else>
+  <Spinner />
+</div>
+</section>
+</div>
 </template>
 
 <script>
@@ -117,7 +126,7 @@ export default {
   margin: 0 auto;
 }
 
-img {
+.products-div img {
   aspect-ratio: 1;
   object-fit: contain;
   object-position: center;
@@ -150,5 +159,37 @@ border-radius: 5px 2px 5px 2px !important;
 .category {
   font-size: 0.9rem;
   color: #777;
+}
+
+.heading {
+  padding-bottom: 20px;
+  position: fixed;
+  top: 6rem; /* Adjust to place the banner below the heading */
+
+  z-index: 1; /* Banner stays behind the text */
+  overflow: hidden;
+}
+
+.banner-row {
+  position: fixed;
+  top: 150px; /* Adjust to place the banner below the heading */
+
+  z-index: 1; /* Banner stays behind the text */
+  overflow: hidden;
+}
+
+.banner {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Ensure the image covers the entire banner area */
+}
+
+.products-section {
+  position: relative;
+  z-index: 2; /* Ensure text is above the banner */
+  margin-top: 200px; /* Adjust to start overlapping the banner */
+  padding: 20px;
+  background-color: #fff; /* Optional: Adds a semi-transparent background to the text */
+  width: 100vw;
 }
 </style>
