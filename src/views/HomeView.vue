@@ -7,7 +7,7 @@
       <img class="home-img" src="https://github.com/caleb-okkers/the-forge-images/blob/main/pexels-ahmetmert-20576396(1)(1)(1)(1).png?raw=true" alt="Warrior" loading="lazy">
     </div>
 
-    <section class="products-section">
+    <section class="new-products-section">
 
       <div class="row">
         <h5 class="headings">New Releases</h5>
@@ -177,7 +177,7 @@ export default {
   width: 100vw;
 }
 
-.products-section {
+.new-products-section {
   position: relative;
   z-index: 2; /* Ensure text is above the banner */
   margin-top: 40rem; /* Adjust to start overlapping the banner */
@@ -185,4 +185,114 @@ export default {
   background-color: #fff; /* Optional: Adds a semi-transparent background to the text */
   width: 100vw;
 }
+
+
+/* Medium screens */
+@media (max-width: 992px) {
+  .title {
+    font-size: 4rem;
+  }
+
+  .home-img-row {
+    top: 15rem;
+  }
+
+  .new-products-section {
+    margin-top: 20rem;
+  }
+
+  .products-div {
+    width: 90% !important;
+  }
+}
+
+/* Small screens */
+@media (max-width: 768px) {
+  .title {
+    font-size: 3rem;
+    text-align: center;
+  }
+
+  .home-img-row {
+    top: 10rem;
+  }
+
+  .new-products-section {
+    margin-top: 20rem;
+  }
+
+  .products-div {
+    width: 95% !important;
+  }
+
+  .btn {
+    width: 100%;
+  }
+
+  .headings-row {
+    text-align: center;
+  }
+}
+
+
+@media (max-width: 575px) {
+  .title {
+    font-size: 2.5rem;
+    text-align: center;
+  }
+
+  .home-img-row {
+    top: 8rem
+  }
+
+  .new-products-section {
+    margin-top: 15rem;
+  }
+
+  .products-div {
+    width: 100% !important;
+  }
+
+  .btn {
+    width: 100%;
+  }
+
+  .headings-row {
+    text-align: center;
+  }
+}
+
+
+@media (max-width: 330px) {
+  .title {
+    font-size: 2.2rem;
+    text-align: center;
+  }
+
+  .home-img-row {
+    top: 8rem
+  }
+
+  .new-products-section {
+    margin-top: 10rem;
+  }
+
+  .products-div {
+    width: 100% !important;
+  }
+
+  .btn {
+    width: 100%;
+  }
+
+  .headings-row {
+    text-align: center;
+  }
+
+  .headings {
+    font-size: 1.8rem;
+  }
+}
+
+
 </style>

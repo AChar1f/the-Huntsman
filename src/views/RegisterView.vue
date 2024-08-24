@@ -1,5 +1,5 @@
 <template>
-  <div class="container-fluid  pt-5">
+  <div class="container-fluid content  pt-5">
         <div class="row headings-row  pt-5">
             <h2 class="headings heading ">Register</h2>
         </div>

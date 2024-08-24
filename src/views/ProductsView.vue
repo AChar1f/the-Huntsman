@@ -11,25 +11,25 @@
     <section class="products-section">
 
       
-      <div class="row d-flex justify-content-center pt-4 pb-4">
+      <div class="row filter-div mx-auto d-flex justify-content-center pt-4 pb-4">
+        <form role="search" class="w-25 h-100 search-form">
+          <input
+          class="form-control search w-100 h-100"
+          type="search"
+          placeholder="Search"
+          aria-label="Search"
+          v-model="searchQuery"
+          />
+        </form>
         <button
         class="btn sort"
         type="button"
         id="sort"
         @click="toggleSort"
         >
-        Sort by price: {{ sortAscending ? 'lowest' : 'highest' }}
+        Price: {{ sortAscending ? 'lowest' : 'highest' }}
       </button>
       
-      <form role="search" class="w-25 h-100 search-form">
-        <input
-        class="form-control search w-100 h-100"
-        type="search"
-        placeholder="Search"
-        aria-label="Search"
-        v-model="searchQuery"
-        />
-      </form>
 
       <select
             class="form-control w-50 ms-2"
@@ -143,6 +143,10 @@ export default {
 
 <style scoped>
 
+.filter-div {
+  width: 80%;
+}
+
 .products-div {
   width: 80% !important;
   margin: 0 auto;
@@ -185,17 +189,17 @@ border-radius: 5px 2px 5px 2px !important;
 .heading {
   padding-bottom: 20px;
   position: fixed;
-  top: 6rem; /* Adjust to place the banner below the heading */
+  top: 6rem;
 
-  z-index: 1; /* Banner stays behind the text */
+  z-index: 1; 
   overflow: hidden;
 }
 
 .banner-row {
   position: fixed;
-  top: 150px; /* Adjust to place the banner below the heading */
+  top: 150px; 
 
-  z-index: 1; /* Banner stays behind the text */
+  z-index: 1; 
   overflow: hidden;
 }
 
@@ -225,9 +229,191 @@ select.form-control {
 
 .search-form {
   height: 2.5rem !important;
+  width: 40% !important;
 }
 
 .search {
   height: 100% !important;
 }
+
+@media (max-width: 1350px) {
+
+  select.form-control {
+  width: 8rem !important; /* Adjust as needed */
+  height: 2.6rem !important;
+  font-size: 1rem !important;
+  border: 0.2px solid rgb(29, 29, 29) !important;
+  margin-top: 0.5rem;
+}
+
+.search-form {
+  width: 95% !important;
+  height: 2.6rem !important;
+  font-size: 1rem !important;
+  
+}
+
+.search {
+  width: 100% !important;
+  height: 100% !important;
+  font-size: 1rem !important;
+  border: 0.2px solid rgb(29, 29, 29) !important;
+}
+
+.sort {
+  margin-top: 0.5rem;
+  width: 8rem !important;
+  height: 2.6rem !important;
+  font-size: 1rem !important;
+  text-align: center !important;
+  border: 0.2px solid rgb(29, 29, 29) !important;
+}
+
+
+}
+
+@media (max-width: 992px) {
+
+  select.form-control {
+  width: 6.5rem !important; /* Adjust as needed */
+  height: 2.6rem !important;
+  font-size: 0.8rem !important;
+  border: 0.2px solid rgb(29, 29, 29) !important;
+  margin-top: 0.5rem;
+}
+
+.search-form {
+  width: 100% !important;
+  height: 2.6rem !important;
+  font-size: 0.8rem !important;
+  
+}
+
+.search {
+  width: 100% !important;
+  height: 100% !important;
+  font-size: 0.8rem !important;
+  border: 0.2px solid rgb(29, 29, 29) !important;
+}
+
+.sort {
+  margin-top: 0.5rem;
+  width: 6.5rem !important;
+  height: 2.6rem !important;
+  font-size: 0.8rem !important;
+  text-align: center !important;
+  border: 0.2px solid rgb(29, 29, 29) !important;
+}
+
+
+}
+
+
+@media (max-width: 768px) {
+
+  select.form-control {
+  width: 6.5rem !important; /* Adjust as needed */
+  height: 2.6rem !important;
+  font-size: 0.8rem !important;
+  border: 0.2px solid rgb(29, 29, 29) !important;
+  margin-top: 0.5rem;
+}
+
+.search-form {
+  width: 100% !important;
+  height: 2.6rem !important;
+  font-size: 0.8rem !important;
+  
+}
+
+.search {
+  width: 100% !important;
+  height: 100% !important;
+  font-size: 0.8rem !important;
+  border: 0.2px solid rgb(29, 29, 29) !important;
+}
+
+.sort {
+  margin-top: 0.5rem;
+  width: 6.5rem !important;
+  height: 2.6rem !important;
+  font-size: 0.8rem !important;
+  text-align: center !important;
+  border: 0.2px solid rgb(29, 29, 29) !important;
+}
+
+}
+
+
+@media (max-width: 575px) {
+
+  select.form-control {
+  width: 6.5rem !important; /* Adjust as needed */
+  height: 2.3rem !important;
+  font-size: 0.8rem !important;
+  border: 0.2px solid rgb(29, 29, 29) !important;
+  margin-top: 0.5rem;
+}
+
+.search-form {
+  width: 23rem !important;
+  height: 2.3rem !important;
+  font-size: 0.8rem !important;
+  
+}
+
+.search {
+  width: 100% !important;
+  height: 100% !important;
+  font-size: 0.8rem !important;
+  border: 0.2px solid rgb(29, 29, 29) !important;
+}
+
+.sort {
+  margin-top: 0.5rem;
+  width: 6.5rem !important;
+  height: 2.3rem !important;
+  font-size: 0.8rem !important;
+  text-align: center !important;
+  border: 0.2px solid rgb(29, 29, 29) !important;
+}
+
+}
+
+@media (max-width: 330px) {
+
+  select.form-control {
+  width: 5.5rem !important; /* Adjust as needed */
+  height: 1.8rem !important;
+  font-size: 0.6rem !important;
+  border: 0.2px solid rgb(29, 29, 29) !important;
+  margin-top: 0.5rem;
+}
+
+.search-form {
+  width: 13rem !important;
+  height: 1.8rem !important;
+  font-size: 0.8rem !important;
+  
+}
+
+.search {
+  width: 100% !important;
+  height: 100% !important;
+  font-size: 0.65rem !important;
+  border: 0.2px solid rgb(29, 29, 29) !important;
+}
+
+.sort {
+  margin-top: 0.5rem;
+  width: 5.5rem !important;
+  height: 1.8rem !important;
+  font-size: 0.65rem !important;
+  text-align: center !important;
+  border: 0.2px solid rgb(29, 29, 29) !important;
+}
+
+
+}
+
 </style>

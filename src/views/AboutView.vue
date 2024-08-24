@@ -93,4 +93,31 @@
   width: 100vw;
   padding: 3rem 10rem;
 }
+
+@media (max-width: 992px) {
+  .text {
+    padding: 2rem 8rem !important;
+  }
+}
+
+
+@media (max-width: 768px) {
+  .text {
+    padding: 2rem 6rem !important;
+  }
+}
+
+
+@media (max-width: 575px) {
+  .text {
+    padding: 2rem 5rem !important;
+  }
+}
+
+@media (max-width: 330px) {
+  .text {
+    padding: 2rem 3rem !important;
+  }
+}
+
 </style>

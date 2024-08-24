@@ -259,4 +259,23 @@ border-radius: 5px 2px 5px 2px !important;
     padding-bottom: 1rem;
   }
 }
+
+@media (max-width: 992px) {
+
+}
+
+
+@media (max-width: 768px) {
+
+}
+
+
+@media (max-width: 575px) {
+
+}
+
+@media (max-width: 330px) {
+
+}
+
 </style>

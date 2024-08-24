@@ -375,4 +375,24 @@ button:hover {
   width: 100vw;
 }
 
+
+@media (max-width: 992px) {
+
+}
+
+
+@media (max-width: 768px) {
+
+}
+
+
+@media (max-width: 575px) {
+
+}
+
+@media (max-width: 330px) {
+
+}
+
+
 </style>
