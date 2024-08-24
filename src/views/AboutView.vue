@@ -1,7 +1,7 @@
 <template>
   <div class="container-fluid content pt-5">
-    <div class="row pt-5">
-      <h2 class="headings heading">Our Origin</h2>
+    <div class="row headings-row pt-5">
+      <h2 class="headings heading">About The Huntsman</h2>
     </div>
     <div class="row justify-content-center banner-row">
       <img
@@ -48,6 +48,12 @@
 </template>
 
 <style scoped>
+
+.row {
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+}
+
 .container-fluid {
   padding-left: 0 !important;
   padding-right: 0 !important;
@@ -85,6 +91,6 @@
   padding: 20px;
   background-color: #fff; /* Optional: Adds a semi-transparent background to the text */
   width: 100vw;
-  padding: 3rem 3rem;
+  padding: 3rem 10rem;
 }
 </style>

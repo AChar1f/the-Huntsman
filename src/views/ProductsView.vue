@@ -1,11 +1,11 @@
 <template>
   <div class="container-fluid pt-5 content">
-    <div class="row pt-5 pb-2">
+    <div class="row headings-row pt-5 pb-2">
       <h2 class="headings heading">Products</h2>
     </div>
 
     <div class="row banner-row">
-            <img class="banner" src="https://github.com/caleb-okkers/the-forge-images/blob/main/pexels-kampcropveyaban-17487579(1)(1)(1)(1).png?raw=truehttps://github.com/caleb-okkers/the-forge-images/blob/main/pexels-kampcropveyaban-17487579(1)(1)(1)(1).png?raw=true" alt="">
+            <img class="banner" src="https://github.com/caleb-okkers/the-forge-images/blob/main/shoutpexels-ahmetmert-20456671(1)(1).png?raw=true" alt="">
     </div>
 
     <section class="products-section">
@@ -187,7 +187,7 @@ border-radius: 5px 2px 5px 2px !important;
 .products-section {
   position: relative;
   z-index: 2; /* Ensure text is above the banner */
-  margin-top: 200px; /* Adjust to start overlapping the banner */
+  margin-top: 20rem; /* Adjust to start overlapping the banner */
   padding: 20px;
   background-color: #fff; /* Optional: Adds a semi-transparent background to the text */
   width: 100vw;

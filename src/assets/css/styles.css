@@ -66,6 +66,10 @@ body {
   font-style: normal;
   font-size: 2.5rem;
   color: rgb(29, 29, 29);
+  padding-left: 0;
+  padding-right: 0 !important;
+  margin-left: 0;
+  margin-right: 0;
 }
 
 
@@ -100,6 +104,11 @@ button:hover {
   
 }
 
+/* .row {
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+} */
+
 .container-fluid {
   padding-left: 0 !important;
   padding-right: 0 !important;
@@ -128,4 +137,9 @@ button:hover {
   padding: 0 0 !important;
   object-fit: stretch !important;
   margin-left: 0 ;
+}
+
+.home-img-row, .banner-row, .headings-row {
+  margin-left: 0 !important;
+  margin-right: 0 !important;
 }

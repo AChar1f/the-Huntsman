@@ -1,6 +1,6 @@
 <template>
   <div class="container-fluid pt-5 content">
-    <div class="row pt-4">
+    <div class="row headings-row pt-4">
       <h2 class="title heading"><span>The </span> <span> Huntsman</span></h2>
     </div>
     <div class="row home-img-row">

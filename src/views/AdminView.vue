@@ -1,12 +1,12 @@
 
 <template>
   <div class="container-fluid content  pt-5">
-    <div class="row  pt-5">
+    <div class="row headings-row  pt-5">
             <h2 class="headings heading ">Admin Portal</h2>
     </div>
 
     <div class="row banner-row">
-            <img class="banner" src="https://github.com/caleb-okkers/the-forge-images/blob/main/adminbannercrop.png?raw=true" alt="">
+            <img class="banner" src="https://github.com/caleb-okkers/the-forge-images/blob/main/greylargepexels-ahmetmert-19800988(1)(1).png?raw=true" alt="">
     </div>
 
     <section class="admin-section">
@@ -355,6 +355,7 @@ button:hover {
 
   z-index: -1; /* Banner stays behind the text */
   overflow: hidden;
+  
 }
 
 .banner {
@@ -366,7 +367,7 @@ button:hover {
 .admin-section {
   position: relative;
   z-index: 2; /* Ensure text is above the banner */
-  margin-top: 200px; /* Adjust to start overlapping the banner */
+  margin-top: 25rem; /* Adjust to start overlapping the banner */
   padding: 20px;
   background-color: #fff; /* Optional: Adds a semi-transparent background to the text */
   width: 100vw;
