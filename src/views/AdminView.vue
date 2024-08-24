@@ -59,7 +59,7 @@
           <td>{{ user.userRole }}</td>
           <td>
             <button class="btn mt-1 mb-1" @click="openUpdateUserModal(user)">Update</button>
-            <button class="btn mt-1 mb-1" @click="deleteUser(userID)">Delete</button>
+            <button class="btn mt-1 mb-1" @click="deleteUser(user.userID)">Delete</button>
           </td>
         </tr>
       </tbody>
@@ -129,7 +129,7 @@
           <td>{{ product.quantity }}</td>
           <td>
             <button class="btn mt-1 mb-1" @click="openUpdateProductModal(product)">Update</button>
-            <button class="btn mt-1 mb-1" @click="deleteProduct(prodID)">Delete</button>
+            <button class="btn mt-1 mb-1" @click="deleteProduct(product.prodID)">Delete</button>
           </td>
         </tr>
       </tbody>
@@ -204,7 +204,9 @@ export default {
     },
     deleteUser(userID) {
       if (confirm('Are you sure you want to delete this user?')) {
-        this.$store.dispatch('deleteUser', userID);
+        this.$store.dispatch('deleteUser', userID).then(() => {
+          this.fetchUsers(); // Reload users
+        });
       }
     },
     openUpdateProductModal(product) {
@@ -221,10 +223,10 @@ export default {
     },
     deleteProduct(prodID) {
       if (confirm('Are you sure you want to delete this product?')) {
-    this.$store.dispatch('deleteProduct', prodID).then(() => {
-      this.fetchProducts(); // Reload products
-    });
-  }
+        this.$store.dispatch('deleteProduct', prodID).then(() => {
+          this.fetchProducts(); // Reload products
+        });
+      }
     },
     addUser() {
       if (this.newUser.userProfile && this.newUser.firstName && this.newUser.lastName && this.newUser.userAge && this.newUser.emailAdd && this.newUser.userPass) {
@@ -240,7 +242,7 @@ export default {
       if (this.newProduct.prodUrl && this.newProduct.prodName && this.newProduct.prodDescription && this.newProduct.category && this.newProduct.amount  && this.newProduct.quantity ) {
         this.$store.dispatch('addProduct', this.newProduct).then(() => {
           this.showAddProductForm = false;
-          this.newProduct = { prodUrl: '', firstName: '', prodName: '', prodDescription: '', category: '', quantity: '' };
+          this.newProduct = { prodUrl: '', prodName: '', prodDescription: '', category: '',amount: '', quantity: '' };
         });
       } else {
         alert('Please fill in all fields.');
@@ -317,11 +319,11 @@ button:hover {
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+  background-color: rgba(0, 0, 0, 0.5); 
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 1000; /* Ensure it's on top */
+  z-index: 1000;
 }
 
 .modal-content {
@@ -343,17 +345,17 @@ button:hover {
 .heading {
   padding-bottom: 20px;
   position: fixed;
-  top: 6rem; /* Adjust to place the banner below the heading */
+  top: 6rem;
 
-  z-index: 1; /* Banner stays behind the text */
+  z-index: 1; 
   overflow: hidden;
 }
 
 .banner-row {
   position: fixed;
-  top: 150px; /* Adjust to place the banner below the heading */
+  top: 150px; 
 
-  z-index: -1; /* Banner stays behind the text */
+  z-index: -1; 
   overflow: hidden;
   
 }
@@ -361,15 +363,15 @@ button:hover {
 .banner {
   width: 100%;
   height: 100%;
-  object-fit: cover; /* Ensure the image covers the entire banner area */
+  object-fit: cover; 
 }
 
 .admin-section {
   position: relative;
-  z-index: 2; /* Ensure text is above the banner */
-  margin-top: 25rem; /* Adjust to start overlapping the banner */
+  z-index: 2; 
+  margin-top: 25rem; 
   padding: 20px;
-  background-color: #fff; /* Optional: Adds a semi-transparent background to the text */
+  background-color: #fff;
   width: 100vw;
 }
 

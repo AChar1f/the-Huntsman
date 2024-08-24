@@ -21,15 +21,25 @@
         Sort by price: {{ sortAscending ? 'lowest' : 'highest' }}
       </button>
       
-      <form role="search" class="w-25 h-100">
+      <form role="search" class="w-25 h-100 search-form">
         <input
-        class="form-control w-100 h-100"
+        class="form-control search w-100 h-100"
         type="search"
         placeholder="Search"
         aria-label="Search"
         v-model="searchQuery"
         />
       </form>
+
+      <select
+            class="form-control w-50 ms-2"
+            v-model="selectedCategory"
+          >
+            <option value="">All Categories</option>
+            <option v-for="category in categories" :key="category" :value="category">
+              {{ category }}
+            </option>
+      </select>
     </div>
     <div
     class="row gap-2 justify-content-center products-div"
@@ -83,6 +93,8 @@ export default {
     return {
       searchQuery: '',
       sortAscending: true,
+      selectedCategory: '',
+      categories: [], // To store unique categories
     };
   },
   computed: {
@@ -97,6 +109,12 @@ export default {
       filteredProducts = filteredProducts.filter(product =>
         product.prodName.toLowerCase().includes(this.searchQuery.toLowerCase()) || product.category.toLowerCase().includes(this.searchQuery.toLowerCase())
       );
+    }
+
+    if (this.selectedCategory && this.selectedCategory !== '') {
+        filteredProducts = filteredProducts.filter(product =>
+          product.category === this.selectedCategory
+        );
     }
 
     if (this.sortAscending) {
@@ -114,7 +132,11 @@ export default {
     },
   },
   mounted() {
-    this.$store.dispatch("fetchProducts");
+    this.$store.dispatch("fetchProducts").then(() => {
+      // Extract unique categories from products
+      const products = this.$store.state.products || [];
+      this.categories = [...new Set(products.map(product => product.category))];
+    });
   },
 };
 </script>
@@ -152,13 +174,12 @@ border-radius: 5px 2px 5px 2px !important;
 
 .form-control {
 box-shadow: none !important;
-border: 2px solid rgb(129, 129, 129) !important;
+border: 2px solid rgb(29, 29, 29) !important;
 border-radius: 5px 2px 5px 2px !important;
 }
 
 .category {
   font-size: 0.9rem;
-  color: #777;
 }
 
 .heading {
@@ -191,5 +212,22 @@ border-radius: 5px 2px 5px 2px !important;
   padding: 20px;
   background-color: #fff; /* Optional: Adds a semi-transparent background to the text */
   width: 100vw;
+}
+
+.category {
+  font-size: 0.9rem;
+  color: #777;
+}
+
+select.form-control {
+  max-width: 150px; /* Adjust as needed */
+}
+
+.search-form {
+  height: 2.5rem !important;
+}
+
+.search {
+  height: 100% !important;
 }
 </style>
