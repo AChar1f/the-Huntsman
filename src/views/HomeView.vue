@@ -149,52 +149,51 @@ export default {
 .heading {
   padding-bottom: 20px;
   position: fixed;
-  top: 5rem; /* Adjust to place the banner below the heading */
+  top: 5rem; 
 
-  z-index: 1; /* Banner stays behind the text */
+  z-index: 1; 
   overflow: hidden;
 }
 
 .home-img-row {
   position: fixed;
-  top: 170px; /* Adjust to place the banner below the heading */
-  z-index: -1; /* Banner stays behind the text */
+  top: 170px; 
+  z-index: -1; 
   overflow: hidden;
 }
 
 .home-img {
   width: 100%;
   height: 100%;
-  object-fit: cover; /* Ensure the image covers the entire banner area */
+  object-fit: cover;
 }
 
 .text {
   position: relative;
-  z-index: 2; /* Ensure text is above the banner */
-  margin-top: 200px; /* Adjust to start overlapping the banner */
+  z-index: 2; 
+  margin-top: 200px; 
   padding: 20px;
-  background-color: #fff; /* Optional: Adds a semi-transparent background to the text */
+  background-color: #fff; 
   width: 100vw;
 }
 
 .new-products-section {
   position: relative;
-  z-index: 2; /* Ensure text is above the banner */
-  margin-top: 40rem; /* Adjust to start overlapping the banner */
+  z-index: 2; 
+  margin-top: 40rem; 
   padding: 20px;
-  background-color: #fff; /* Optional: Adds a semi-transparent background to the text */
+  background-color: #fff; 
   width: 100vw;
 }
 
 
-/* Medium screens */
 @media (max-width: 992px) {
   .title {
     font-size: 4rem;
   }
 
   .home-img-row {
-    top: 15rem;
+    top: 10rem;
   }
 
   .new-products-section {
@@ -206,7 +205,6 @@ export default {
   }
 }
 
-/* Small screens */
 @media (max-width: 768px) {
   .title {
     font-size: 3rem;
@@ -281,9 +279,7 @@ export default {
     width: 100% !important;
   }
 
-  .btn {
-    width: 100%;
-  }
+
 
   .headings-row {
     text-align: center;
@@ -291,6 +287,19 @@ export default {
 
   .headings {
     font-size: 1.8rem;
+  }
+
+  .card-title {
+    font-size: 1rem;
+  }
+
+  .btn {
+    margin-top: 0.5rem;
+    width: 6.5rem !important;
+    height: 2.3rem !important;
+    font-size: 0.8rem !important;
+    text-align: center !important;
+    border: 0.2px solid rgb(29, 29, 29) !important;
   }
 }
 

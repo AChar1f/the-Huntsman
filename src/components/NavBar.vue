@@ -72,22 +72,23 @@ img {
 }
 
 .navbar .nav-link {
-    color: #4b4242;
+    color: #777;
     padding-left: 1rem !important;
     padding-right: 1rem !important;
 }
 
 .navbar-toggler {
-    border: none !important; /* Remove border */
-    outline: none !important; /* Remove outline */
+    border: none !important;
+    outline: none !important; 
 }
 
 .navbar-toggler:focus {
-    box-shadow: none !important; /* Remove the focus box shadow */
+    box-shadow: none !important; 
+    background: #fff !important;
 }
 
 nav a.router-link-exact-active {
-  color: rgb(0, 43, 29) !important;
+  color: #000 !important;
   }
 
 
@@ -108,15 +109,15 @@ nav a.router-link-exact-active {
     content: '';
     position: absolute;
     width: 0;
-    height: 1px; /* Adjust the height of the line */
+    height: 1px; 
     bottom: 0;
     left: 50%;
-    background-color: #000; /* Adjust the color of the line */
+    background-color: #000; 
     transition: width 0.3s ease, left 0.3s ease;
 }
 
 .nav-link:hover {
-  color: rgb(0, 43, 29) !important; /* Adjust the hover text color */
+  color: #000 !important; 
 }
 
 .nav-link:hover::after {

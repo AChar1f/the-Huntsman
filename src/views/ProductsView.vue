@@ -94,7 +94,7 @@ export default {
       searchQuery: '',
       sortAscending: true,
       selectedCategory: '',
-      categories: [], // To store unique categories
+      categories: [], 
     };
   },
   computed: {
@@ -206,25 +206,25 @@ border-radius: 5px 2px 5px 2px !important;
 .banner {
   width: 100%;
   height: 100%;
-  object-fit: cover; /* Ensure the image covers the entire banner area */
+  object-fit: cover; 
 }
 
 .products-section {
   position: relative;
-  z-index: 2; /* Ensure text is above the banner */
-  margin-top: 20rem; /* Adjust to start overlapping the banner */
+  z-index: 2; 
+  margin-top: 20rem; 
   padding: 20px;
-  background-color: #fff; /* Optional: Adds a semi-transparent background to the text */
+  background-color: #fff; 
   width: 100vw;
 }
 
 .category {
   font-size: 0.9rem;
-  color: #777;
+  /* color: #777; */
 }
 
 select.form-control {
-  max-width: 150px; /* Adjust as needed */
+  max-width: 150px; 
 }
 
 .search-form {
@@ -239,7 +239,7 @@ select.form-control {
 @media (max-width: 1350px) {
 
   select.form-control {
-  width: 8rem !important; /* Adjust as needed */
+  width: 8rem !important; 
   height: 2.6rem !important;
   font-size: 1rem !important;
   border: 0.2px solid rgb(29, 29, 29) !important;
@@ -275,7 +275,7 @@ select.form-control {
 @media (max-width: 992px) {
 
   select.form-control {
-  width: 6.5rem !important; /* Adjust as needed */
+  width: 6.5rem !important; 
   height: 2.6rem !important;
   font-size: 0.8rem !important;
   border: 0.2px solid rgb(29, 29, 29) !important;
@@ -296,7 +296,7 @@ select.form-control {
   border: 0.2px solid rgb(29, 29, 29) !important;
 }
 
-.sort {
+.btn {
   margin-top: 0.5rem;
   width: 6.5rem !important;
   height: 2.6rem !important;
@@ -312,7 +312,7 @@ select.form-control {
 @media (max-width: 768px) {
 
   select.form-control {
-  width: 6.5rem !important; /* Adjust as needed */
+  width: 6.5rem !important; 
   height: 2.6rem !important;
   font-size: 0.8rem !important;
   border: 0.2px solid rgb(29, 29, 29) !important;
@@ -333,7 +333,7 @@ select.form-control {
   border: 0.2px solid rgb(29, 29, 29) !important;
 }
 
-.sort {
+.btn {
   margin-top: 0.5rem;
   width: 6.5rem !important;
   height: 2.6rem !important;
@@ -347,8 +347,12 @@ select.form-control {
 
 @media (max-width: 575px) {
 
+  .card-title {
+    font-size: 1rem;
+  }
+
   select.form-control {
-  width: 6.5rem !important; /* Adjust as needed */
+  width: 6.5rem !important; 
   height: 2.3rem !important;
   font-size: 0.8rem !important;
   border: 0.2px solid rgb(29, 29, 29) !important;
@@ -369,7 +373,7 @@ select.form-control {
   border: 0.2px solid rgb(29, 29, 29) !important;
 }
 
-.sort {
+.btn {
   margin-top: 0.5rem;
   width: 6.5rem !important;
   height: 2.3rem !important;
@@ -383,7 +387,7 @@ select.form-control {
 @media (max-width: 330px) {
 
   select.form-control {
-  width: 5.5rem !important; /* Adjust as needed */
+  width: 5.5rem !important; 
   height: 1.8rem !important;
   font-size: 0.6rem !important;
   border: 0.2px solid rgb(29, 29, 29) !important;
@@ -404,7 +408,7 @@ select.form-control {
   border: 0.2px solid rgb(29, 29, 29) !important;
 }
 
-.sort {
+.btn {
   margin-top: 0.5rem;
   width: 5.5rem !important;
   height: 1.8rem !important;

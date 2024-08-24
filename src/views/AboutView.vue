@@ -1,7 +1,7 @@
 <template>
   <div class="container-fluid content pt-5">
     <div class="row headings-row pt-5">
-      <h2 class="headings heading">About The Huntsman</h2>
+      <h2 class="headings heading">About Us</h2>
     </div>
     <div class="row justify-content-center banner-row">
       <img
@@ -62,34 +62,34 @@
 .heading {
   padding-bottom: 20px;
   position: fixed;
-  top: 6rem; /* Adjust to place the banner below the heading */
+  top: 6rem; 
 
-  z-index: 1; /* Banner stays behind the text */
+  z-index: 1; 
   overflow: hidden;
 }
 
 .banner-row {
   position: fixed;
-  top: 150px; /* Adjust to place the banner below the heading */
+  top: 150px; 
 
   width: 100%;
-  height: 300px; /* Set a fixed height for the banner */
-  z-index: 1; /* Banner stays behind the text */
+  height: 300px; 
+  z-index: 1; 
   overflow: hidden;
 }
 
 .banner {
   width: 100%;
   height: 100%;
-  object-fit: cover; /* Ensure the image covers the entire banner area */
+  object-fit: cover; 
 }
 
 .text {
   position: relative;
-  z-index: 2; /* Ensure text is above the banner */
-  margin-top: 300px; /* Adjust to start overlapping the banner */
+  z-index: 2; 
+  margin-top: 300px; 
   padding: 20px;
-  background-color: #fff; /* Optional: Adds a semi-transparent background to the text */
+  background-color: #fff;
   width: 100vw;
   padding: 3rem 10rem;
 }

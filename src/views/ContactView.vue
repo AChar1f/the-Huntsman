@@ -33,15 +33,15 @@
         <div class="socials justify-content-center align-items-center">
           <div class="info d-flex justify-content-center align-items-center">
             <div>
-              <p>Address: </p>
-              <p>Email: </p>
-              <p>Phone: </p>
+              <p class="info-type">Address: </p>
+              <p class="info-type">Email: </p>
+              <p class="info-type">Phone: </p>
   
             </div>
             <div>
-              <p>Macassar Rd, Croydon, Cape Town, 7134</p>
-              <p>info@thehuntsman.com</p>
-              <p>021 707 7777</p>
+              <p class="info">Macassar Rd, Croydon, Cape Town, 7134</p>
+              <p class="info">info@thehuntsman.com</p>
+              <p class="info">021 707 7777</p>
             </div>
 
           </div>
@@ -248,34 +248,161 @@ border-radius: 5px 2px 5px 2px !important;
   padding: 1rem;
 }
 
-@media (max-width: 475px) {
+@media (max-width: 1150px) {
+
+.info-type {
+  margin-bottom: 1.5rem !important;
+  display: none;
+}
+
+.socials p {
+  text-align: center;
+}
+
+.info {
+  margin-bottom: 1.5rem !important;
+  margin-left: -2rem;
+}
+}
+
+
+@media (max-width: 992px) {
+
+  .socials p {
+  text-align: center;
+}
+
+  .info-type {
+    margin-bottom: 1.5rem !important;
+    display: none;
+  }
+
+  .info {
+    margin-bottom: 1.5rem !important;
+    margin-left: -1.5rem;
+  }
+}
+
+
+@media (max-width: 775px) {
+  .contact-section {
+    margin-top: 6rem !important;
+    flex-direction: column;
+  }
+
   .form-div {
+    width: 60% !important;
+    margin: 0 12px;
+    padding-left: 0px;
+    padding-bottom: 5rem !important;
+  }
+
+  .socials {
+    padding-top: 5rem !important;
+    padding-bottom: 1rem;
     width: 100% !important;
+  }
+
+  .info-type {
+    margin-bottom: 1.5rem !important;
+    display: none;
+  }
+
+  .info {
+    margin-bottom: 0.5rem !important;
+    margin-left: -2rem;
+  }
+}
+
+
+@media (max-width: 575px) {
+  .contact-section {
+    margin-top: 6rem !important;
+    flex-direction: column;
+  }
+
+  .form-div {
+    width: 80% !important;
     margin: 0 12px;
     padding-left: 0px;
   }
 
   .socials {
     padding-bottom: 1rem;
+    width: 100% !important;
+  }
+
+  .info-type {
+    margin-bottom: 1.5rem !important;
+    display: none;
+  }
+
+  .info {
+    margin-bottom: 0.5rem !important;
+    margin-left: -1.8rem;
+  }
+
+  .card-title {
+    font-size: 1rem ;
+  }
+
+  .btn {
+    margin-top: 0.5rem;
+    width: 100% !important;
+    height: 2.3rem !important;
+    font-size: 0.8rem !important;
+    text-align: center !important;
+    border: 0.2px solid rgb(29, 29, 29) !important;
   }
 }
 
-@media (max-width: 992px) {
-
-}
-
-
-@media (max-width: 768px) {
-
-}
-
-
-@media (max-width: 575px) {
-
-}
-
 @media (max-width: 330px) {
+  .contact-section {
+    margin-top: 6rem !important;
+    flex-direction: column;
+  }
 
+  .form-div {
+    width: 80% !important;
+    margin: 0 12px;
+    padding-left: 0px;
+  }
+
+  .socials {
+    padding-bottom: 1rem;
+    width: 100% !important;
+  }
+
+  .socials div {
+    padding: 0 1rem;
+  }
+
+  .info-type {
+    margin-bottom: 1.5rem !important;
+    display: none;
+  }
+
+  .info {
+    margin-bottom: 0.5rem !important;
+    margin-left: -0.8rem;
+  }
+
+  .icons a {
+  padding: 0.5rem;
+}
+
+.card-title {
+    font-size: 1rem ;
+  }
+
+  .btn {
+    margin-top: 0.5rem;
+    width: 100% !important;
+    height: 2.3rem !important;
+    font-size: 0.8rem !important;
+    text-align: center !important;
+    border: 0.2px solid rgb(29, 29, 29) !important;
+  }
 }
 
 </style>

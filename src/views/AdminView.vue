@@ -105,7 +105,7 @@
       </div>
     </div>
     
-    <table class="table">
+    <table class="table products-table ">
       <thead>
         <tr>
           <th>Product</th>
@@ -272,9 +272,12 @@ table img {
 }
 
 .table {
-  width: 100%;
+  width: 100% !important;
   border-collapse: collapse;
   margin-bottom: 20px;
+  overflow-x: auto; /* Enable horizontal scrolling on smaller screens */
+  margin-left: 0 !important;
+  margin-right: 0 !important;
 }
 
 .table th,
@@ -293,7 +296,7 @@ table img {
   background-color: #f5f5f5;
 }
 
-button {
+table button:first-of-type {
   margin-right: 5px;
   color: #fff;
 
@@ -375,24 +378,137 @@ button:hover {
   width: 100vw;
 }
 
+@media (max-width: 1350px) {
 
-@media (max-width: 992px) {
+.table {
+  overflow-x: auto;
+  white-space: nowrap; 
+}
 
+.products-table {
+  display: block; 
+}
 }
 
 
+
+@media (max-width: 992px) {
+  
+  .table {
+    overflow-x: auto;
+    white-space: nowrap; 
+  }
+  
+  table button {
+    width: 4.5rem;
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 928px) {
+
+  .table {
+    display: block; 
+    overflow-x: auto; 
+    white-space: nowrap; 
+  }
+}
+
 @media (max-width: 768px) {
+
+  .table {
+    display: block; 
+    overflow-x: auto; 
+    white-space: nowrap; 
+  }
+
+  .table img {
+    width: 2rem; 
+  }
+
+  .table th,
+  .table td {
+    padding: 4px; 
+    font-size: 1rem; 
+  }
+
+  table button {
+    width: 4.5rem;
+    font-size: 1rem;
+  }
+
+  .admin-section {
+    margin-top: 15rem !important;
+  }
 
 }
 
 
 @media (max-width: 575px) {
+  .table th,
+  .table td {
+    font-size: 0.9rem; 
+  }
 
+  .admin-section {
+    margin-top: 12rem !important;
+  }
+
+  table button {
+    width: 3.5rem;
+    font-size: 0.7rem;
+  }
 }
 
 @media (max-width: 330px) {
+  .table {
+    display: block;
+  }
 
+  /* .table thead {
+    display: none; 
+  }
+
+  .table tbody tr {
+    display: block;
+    margin-bottom: 10px;
+    border-bottom: 1px solid #ddd;
+    padding: 10px;
+  }
+
+  .table td {
+    display: flex;
+    justify-content: space-between;
+    padding: 8px 5px;
+    font-size: 0.8rem;
+    text-align: left !important;
+  } */
+
+  /* .table td::before {
+    content: attr(data-label) !important;
+    flex-basis: 40%;
+    font-weight: bold;
+    padding-right: 10px;
+    text-align: left !important;
+  } */
+
+  table img {
+    aspect-ratio: 1;
+    object-fit: contain;
+    object-position: center;
+    width: 2rem;
+  }
+
+  table button {
+    width: 3.5rem;
+    font-size: 0.7rem;
+  }
+
+  .admin-section {
+    margin-top: 9rem !important;
+  }
 }
+
 
 
 </style>

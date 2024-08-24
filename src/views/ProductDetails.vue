@@ -14,7 +14,7 @@
             />
         </template>
         <template #card-body>
-          <h5 class="card-title">{{ product.prodName }}</h5>
+          <h5 class="card-title"><b>{{ product.prodName }}</b></h5>
           <h5 class="card-description">{{ product.prodDescription }}</h5>
         </template>
         <template #card-footer>
@@ -43,11 +43,11 @@ export default {
       return this.$store.state.product;
     },
     productId() {
-      return this.$route.params.id; // Get the product ID from the route params
+      return this.$route.params.id; 
     }
   },
   mounted() {
-    this.$store.dispatch('fetchProduct', this.productId); // Dispatch the action with the product ID
+    this.$store.dispatch('fetchProduct', this.productId);
   }
 };
 </script>

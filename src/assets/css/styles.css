@@ -66,10 +66,10 @@ body {
   font-style: normal;
   font-size: 2.5rem;
   color: rgb(29, 29, 29);
-  padding-left: 0;
+  padding-left: 0 !important;
   padding-right: 0 !important;
-  margin-left: 0;
-  margin-right: 0;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
 }
 
 
@@ -155,15 +155,12 @@ button:hover, select:hover {
   }
 }
 
-/* Medium screens */
+
 @media (max-width: 992px) {
   .title {
     font-size: 4rem;
   }
 
-  .home-img-row {
-    top: 15rem;
-  }
 
   .products-section {
     margin-top: 12rem !important;
@@ -172,9 +169,14 @@ button:hover, select:hover {
   .products-div {
     width: 90% !important;
   }
+
+    .headings {
+    font-size: 2.5rem;
+    padding: 0 0 !important;
+  }
 }
 
-/* Small screens */
+
 @media (max-width: 768px) {
   .title {
     font-size: 3rem;
@@ -199,6 +201,11 @@ button:hover, select:hover {
 
   .headings-row {
     text-align: center;
+  }
+
+  .headings {
+    font-size: 2.5rem;
+    padding: 0 0 !important;
   }
 }
 
@@ -227,6 +234,11 @@ button:hover, select:hover {
 
   .headings-row {
     text-align: center;
+  }
+
+  .headings {
+    font-size: 2rem;
+    padding: 0 0 !important;
   }
 }
 
@@ -264,5 +276,18 @@ button:hover, select:hover {
 
   .text {
     padding: 2rem 3rem !important;
+  }
+
+  .card-title {
+    font-size: 1rem;
+  }
+
+  .btn {
+    margin-top: 0.5rem;
+    width: 6.5rem !important;
+    height: 2.3rem !important;
+    font-size: 0.8rem !important;
+    text-align: center !important;
+    border: 0.2px solid rgb(29, 29, 29) !important;
   }
 }

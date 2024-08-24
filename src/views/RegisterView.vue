@@ -133,4 +133,41 @@ button:hover {
   background-color: #fff; /* Optional: Adds a semi-transparent background to the text */
   width: 100vw;
 }
+
+@media (max-width: 1350px) {
+  .register-section {
+    margin-top: 8rem !important;
+  }
+
+}
+
+@media (max-width: 992px) {
+  .register-section {
+    margin-top: 8rem !important;
+  }
+
+}
+
+
+@media (max-width: 768px) {
+  .register-section {
+    margin-top: 8rem !important;
+  }
+
+}
+
+
+@media (max-width: 575px) {
+
+  .register-section {
+    margin-top: 8rem !important;
+  }
+
+}
+
+@media (max-width: 330px) {
+  .register-section {
+    margin-top: 7rem !important;
+  }
+}
   </style>
