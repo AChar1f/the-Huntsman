@@ -76,17 +76,19 @@ body {
 
 /* buttons */
 
-.btn {
+.btn, select {
   /* background: rgb(0, 43, 29) !important; */
   background: rgb(29, 29, 29) !important;
-  border-radius: none !important;
+  border: 2px rgb(29, 29, 29) !important;
+  color: #fff !important;
+  border-radius: 5px 2px 5px 2px !important;
 }
 
 .btn:hover {
   color: #fff;
 }
 
-button:hover {
+button:hover, select:hover {
   color: #fff;
   background: #000 !important;
 }
