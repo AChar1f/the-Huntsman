@@ -1,25 +1,25 @@
 <template>
   <div class="container-fluid  pt-5">
-        <div class="row  pt-5">
+        <div class="row headings-row  pt-5">
             <h2 class="headings heading ">Register</h2>
         </div>
 
         <div class="row d-flex justify-content-center align-items-center banner-row">
-            <img class="banner" src="https://github.com/caleb-okkers/the-forge-images/blob/main/pexels-ahmetmert-22840949(1)(1)(1)(1)(1)(1).png?raw=true" alt="">
+            <img class="banner" src="https://github.com/caleb-okkers/the-forge-images/blob/main/pexels-ahmetmert-26616241(1)(1).png?raw=true" alt="">
         </div>
 
         <section class="register-section">
-          <div class="row justify-content-center">
-            <div class="register-form">
+          <div class=" row justify-content-center">
+            <form class="register-form">
             <h3>Become A Huntsman</h3>
-            <input v-model="newUser.userProfile" type="text" placeholder="Profile URL">
-            <input v-model="newUser.firstName" type="text" placeholder="First Name">
-            <input v-model="newUser.lastName" type="text" placeholder="Last Name">
-            <input v-model="newUser.userAge" type="text" placeholder="Age">
-            <input v-model="newUser.emailAdd" type="email" placeholder="Email">
-            <input v-model="newUser.userPass" type="password" placeholder="Password">
+            <input v-model="newUser.userProfile" class="form-control" type="text" placeholder="Profile URL">
+            <input v-model="newUser.firstName" class="form-control" type="text" placeholder="First Name">
+            <input v-model="newUser.lastName" class="form-control" type="text" placeholder="Last Name">
+            <input v-model="newUser.userAge" class="form-control" type="text" placeholder="Age">
+            <input v-model="newUser.emailAdd" class="form-control" type="email" placeholder="Email">
+            <input v-model="newUser.userPass" class="form-control" type="password" placeholder="Password">
             <button class="btn mt-1 mb-1" @click="addUser">Submit</button>
-          </div>
+            </form>
           </div>
 
         </section>
@@ -46,7 +46,7 @@
     };
   },
     computed: {
-      ...mapState('users')
+      ...mapState(['users'])
     },
     methods: {
       addUser() {
@@ -81,7 +81,7 @@
   border-radius: 5px;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
   width: 600px;
-  height: 500px;
+  height: 450px;
 }
 
 .register-form input {
@@ -128,7 +128,7 @@ button:hover {
 .register-section {
   position: relative;
   z-index: 2; /* Ensure text is above the banner */
-  margin-top: 14rem; /* Adjust to start overlapping the banner */
+  margin-top: 18rem; /* Adjust to start overlapping the banner */
   padding: 1rem !important;
   background-color: #fff; /* Optional: Adds a semi-transparent background to the text */
   width: 100vw;
