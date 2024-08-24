@@ -275,7 +275,7 @@ table img {
   width: 100% !important;
   border-collapse: collapse;
   margin-bottom: 20px;
-  overflow-x: auto; /* Enable horizontal scrolling on smaller screens */
+  overflow-x: auto; 
   margin-left: 0 !important;
   margin-right: 0 !important;
 }

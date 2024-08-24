@@ -124,10 +124,11 @@ export default {
     }
 }
 
-/* Applying the animations */
+
 .title span:first-child {
     display: inline-block;
     animation: moveInFromLeft 1s ease-in-out forwards;
+    color: #777;
 }
 
 .title span:last-child {

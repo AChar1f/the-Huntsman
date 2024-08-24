@@ -53,7 +53,7 @@ export default {
 </script>
 
 <style scoped>
-@media (max-width: 992px) {
+/* @media (max-width: 992px) {
 
 }
 
@@ -69,7 +69,7 @@ export default {
 
 @media (max-width: 330px) {
 
-}
+} */
 
 
 </style>

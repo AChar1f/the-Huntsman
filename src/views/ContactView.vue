@@ -166,31 +166,31 @@ export default {
 .heading {
   padding-bottom: 20px;
   position: fixed;
-  top: 6rem; /* Adjust to place the banner below the heading */
+  top: 6rem;
 
-  z-index: 1; /* Banner stays behind the text */
+  z-index: 1; 
   overflow: hidden;
 }
 
 .banner-row {
   position: fixed;
-  top: 150px; /* Adjust to place the banner below the heading */
-  z-index: -1; /* Banner stays behind the text */
+  top: 150px;
+  z-index: -1; 
   overflow: hidden;
 }
 
 .banner {
   width: 100%;
   height: 100%;
-  object-fit: cover; /* Ensure the image covers the entire banner area */
+  object-fit: cover;
 }
 
 .contact-section {
   position: relative;
-  z-index: 2; /* Ensure text is above the banner */
-  margin-top: 14rem; /* Adjust to start overlapping the banner */
+  z-index: 2; 
+  margin-top: 14rem; 
   padding: 1rem !important;
-  background-color: #fff; /* Optional: Adds a semi-transparent background to the text */
+  background-color: #fff; 
   width: 100vw;
 }
 
