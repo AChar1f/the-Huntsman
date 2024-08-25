@@ -1,5 +1,9 @@
 {
   "projects": {
-    "default": "thehuntsman-adc15"
-  }
+    "default": "thehuntsman-adc15",
+    "huntsmanOG": "thehuntsman-62a86"
+  },
+  "targets": {},
+  "etags": {},
+  "dataconnectEmulatorConfig": {}
 }

@@ -352,7 +352,7 @@ select.form-control {
   }
 
   select.form-control {
-  width: 6.5rem !important; 
+  width: 7rem !important; 
   height: 2.3rem !important;
   font-size: 0.8rem !important;
   border: 0.2px solid rgb(29, 29, 29) !important;
@@ -373,9 +373,18 @@ select.form-control {
   border: 0.2px solid rgb(29, 29, 29) !important;
 }
 
-.btn {
+.sort {
   margin-top: 0.5rem;
-  width: 6.5rem !important;
+  width: 7rem !important;
+  height: 2.3rem !important;
+  font-size: 0.8rem !important;
+  text-align: center !important;
+  border: 0.2px solid rgb(29, 29, 29) !important;
+}
+
+.btn-success {
+  margin-top: 0.5rem;
+  width: 100% !important;
   height: 2.3rem !important;
   font-size: 0.8rem !important;
   text-align: center !important;
